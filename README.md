@@ -28,7 +28,7 @@
 | explain           | text     | null: false                     |
 | category          | string   | null: false                     |
 | condition         | string   | null: false                     |
-| area              | string   | null: false                     |
+| item_location     | string   | null: false                     |
 | day_to_ship       | string   | null: false                     |
 | price             | integer  | null: false                     |
 | user_id           | refernces| null: false, foreign_key: true  |
