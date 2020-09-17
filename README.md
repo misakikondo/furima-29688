@@ -62,7 +62,7 @@
 | Column            | Type     | Options                         |
 | ----------------- | -------- | ------------------------------- |
 | zip_code          | string   | null: false                     |
-| stats             | string   | null: false                     |
+| state             | string   | null: false                     |
 | city              | string   | null: false                     |
 | street_number     | string   | null: false                     |
 | building_name     | string   |                       　　　　　　|
