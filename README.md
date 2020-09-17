@@ -11,7 +11,7 @@
 | first_name        | string | null: false |
 | family_name_kana  | string | null: false |
 | first_name_kana   | string | null: false |
-| birth             | string | null: false |
+| birth             | date   | null: false |
 
 ## Association
 
@@ -24,14 +24,14 @@
 | Column            | Type     | Options                         |
 | ----------------- | -------- | ------------------------------- |
 | item_name         | string   | null: false                     |
-| image             | text     | null: false                     |
 | explain           | text     | null: false                     |
-| category          | string   | null: false                     |
-| condition         | string   | null: false                     |
-| item_location     | string   | null: false                     |
-| day_to_ship       | string   | null: false                     |
+| category          | integer  | null: false                     |
+| condition         | integer  | null: false                     |
+| shipping_method   | integer  | null: false
+| item_location     | integer  | null: false                     |
+| day_to_ship       | integer  | null: false                     |
 | price             | integer  | null: false                     |
-| user_id           | refernces| null: false, foreign_key: true  |
+| user              | refernces| null: false, foreign_key: true  |
 
 ## Association
 
@@ -43,12 +43,8 @@
 
 | Column            | Type     | Options                         |
 | ----------------- | -------- | ------------------------------- |
-| card_number       | string   | null: false                     |
-| expire_month      | string   | null: false                     |
-| expire_year       | string   | null: false                     |
-| cvc               | string   | null: false                     |
-| item_id           | refernces| null: false, foreign_key: true  |
-| adress_id         | refernces| null: false, foreign_key: true  |
+| item              | refernces| null: false, foreign_key: true  |
+| user              | refernces| null: false, foreign_key: true  |
 
 ## Association
 
@@ -62,12 +58,12 @@
 | Column            | Type     | Options                         |
 | ----------------- | -------- | ------------------------------- |
 | zip_code          | string   | null: false                     |
-| state             | string   | null: false                     |
+| state             | integer  | null: false                     |
 | city              | string   | null: false                     |
 | street_number     | string   | null: false                     |
 | building_name     | string   |                       　　　　　　|
 | phone             | string   | null: false                     |
-| adress_id         | refernces| null: false, foreign_key: true  |
+| order             | refernces| null: false, foreign_key: true  |
 
 ## Association
 
