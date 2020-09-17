@@ -23,13 +23,13 @@
 
 | Column            | Type     | Options                         |
 | ----------------- | -------- | ------------------------------- |
-| item_name         | string   | null: false                     |
-| explain           | text     | null: false                     |
-| category          | integer  | null: false                     |
-| condition         | integer  | null: false                     |
-| shipping_method   | integer  | null: false
-| item_location     | integer  | null: false                     |
-| day_to_ship       | integer  | null: false                     |
+| items_name        | string   | null: false                     |
+| explains          | text     | null: false                     |
+| categories        | integer  | null: false                     |
+| conditions        | integer  | null: false                     |
+| shipping_methods  | integer  | null: false                     |
+| items_location    | integer  | null: false                     |
+| days_to_ship      | integer  | null: false                     |
 | price             | integer  | null: false                     |
 | user              | refernces| null: false, foreign_key: true  |
 
@@ -37,6 +37,11 @@
 
 - has_one :order
 - belongs_to :user
+- belongs_to_active_hash :categories
+- belongs_to_active_hash :conditions
+- belongs_to_active_hash :shipping_methods
+- belongs_to_active_hash :items_location
+- belongs_to_active_hash :days_to_ship
 
 
 ## orders テーブル
@@ -58,9 +63,9 @@
 | Column            | Type     | Options                         |
 | ----------------- | -------- | ------------------------------- |
 | zip_code          | string   | null: false                     |
-| state             | integer  | null: false                     |
+| prefecture        | integer  | null: false                     |
 | city              | string   | null: false                     |
-| street_number     | string   | null: false                     |
+| block             | string   | null: false                     |
 | building_name     | string   |                       　　　　　　|
 | phone             | string   | null: false                     |
 | order             | refernces| null: false, foreign_key: true  |
@@ -68,4 +73,4 @@
 ## Association
 
 - belongs_to :order
-
+- belongs_to_active_hash :prefecture
