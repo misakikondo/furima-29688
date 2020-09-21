@@ -14,11 +14,13 @@ class Item < ApplicationRecord
 
 
   with_options presence: true do
-    validates :category,:condition,:shipping_method,:item_location,:days_to_ship
+    validates :category, :condition, :shipping_method, 
+              :item_location, :days_to_ship
   end
 
   with_options numerically: { other_than:1 } do
-    validates :category_id,:condition_id,:shipping_method_id,:item_location_id,:days_to_ship_id
+    validates :category_id, :condition_id, :shipping_method_id, 
+              :item_location_id, :days_to_ship_id
   end
 
 end
