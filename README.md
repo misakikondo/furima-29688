@@ -25,10 +25,10 @@
 | -------------------- | --------- | ------------------------------- |
 | items_name           | string    | null: false                     |
 | explains             | text      | null: false                     |
-| categories_id        | integer   | null: false                     |
-| conditions_id        | integer   | null: false                     |
-| shipping_methods_id  | integer   | null: false                     |
-| items_location_id    | integer   | null: false                     |
+| category_id          | integer   | null: false                     |
+| condition_id         | integer   | null: false                     |
+| shipping_method_id   | integer   | null: false                     |
+| item_location_id     | integer   | null: false                     |
 | days_to_ship_id      | integer   | null: false                     |
 | price                | integer   | null: false                     |
 | user                 | references| null: false, foreign_key: true  |
@@ -37,10 +37,10 @@
 
 - has_one :order
 - belongs_to :user
-- belongs_to_active_hash :categories
-- belongs_to_active_hash :conditions
-- belongs_to_active_hash :shipping_methods
-- belongs_to_active_hash :items_location
+- belongs_to_active_hash :category
+- belongs_to_active_hash :condition
+- belongs_to_active_hash :shipping_method
+- belongs_to_active_hash :item_location
 - belongs_to_active_hash :days_to_ship
 
 
