@@ -20,9 +20,9 @@ class Item < ApplicationRecord
               :item_location, :days_to_ship
   end
 
-  validates :category_id, numericality: { other_than: 1, message: 'Select' }
-  validates :condition_id, numericality: { other_than: 1, message: 'Select' }
-  validates :shipping_method_id, numericality: { other_than: 1, message: 'Select' }
-  validates :item_location_id, numericality: { other_than: 1, message: 'Select' }
-  validates :days_to_ship_id, numericality: { other_than: 1, message: 'Select' }
+  with_options numericality: { other_than: 1, message: 'Select' } do
+    validates :category_id, :condition_id, :shipping_method_id,
+              :item_location_id, :days_to_ship_id
+  end
+
 end

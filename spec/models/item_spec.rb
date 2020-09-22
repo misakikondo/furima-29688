@@ -55,32 +55,32 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Price Out of setting range')
       end
 
-      it 'Categoryが未選択だと出品できないこと' do
-        @item.category_id = nil
+      it 'Categoryが未選択（id:1)だと出品できないこと' do
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Category Select')
       end
 
-      it 'Conditionが未選択だと出品できないこと' do
-        @item.condition_id = nil
+      it 'Conditionが未選択（id:1)だと出品できないこと' do
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Condition Select')
       end
 
-      it 'Shipping methodが未選択だと出品できないこと' do
-        @item.shipping_method_id = nil
+      it 'Shipping methodが未選択（id:1)だと出品できないこと' do
+        @item.shipping_method_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping method Select')
       end
 
-      it 'Item locationが未選択だと出品できないこと' do
-        @item.item_location_id = nil
+      it 'Item locationが未選択（id:1)だと出品できないこと' do
+        @item.item_location_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Item location Select')
       end
 
-      it 'Days to shipが空だと出品できないこと' do
-        @item.days_to_ship_id = nil
+      it 'Days to shipが未選択（id:1)だと出品できないこと' do
+        @item.days_to_ship_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Days to ship Select')
       end
