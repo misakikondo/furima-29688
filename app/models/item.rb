@@ -24,5 +24,4 @@ class Item < ApplicationRecord
     validates :category_id, :condition_id, :shipping_method_id,
               :item_location_id, :days_to_ship_id
   end
-
 end
