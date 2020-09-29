@@ -1,6 +1,6 @@
 class ItemOrder
   include ActiveModel::Model
-  attr_accessor :token, :item_id, :user_id, :zip_code, :prefecture_id, :city, :block, :building_name, :phone, :order_id
+  attr_accessor :token, :item_id, :user_id, :zip_code, :prefecture_id, :city, :block, :building_name, :phone
 
   with_options presence: true do
     validates :zip_code,       format: { with: /\A\d{3}[-]\d{4}\z/, message: 'is invalid. Half-width number, Include hyphen(-)' }
