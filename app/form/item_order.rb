@@ -5,12 +5,13 @@ class ItemOrder
 
   
   with_options presence: true do
-    validates :zip_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
+    validates :zip_code,       format: { with: /\A\d{3}[-]\d{4}\z/ , message: 'is invalid. Half-width number, Include hyphen(-)'}
+    validates :prefecture_id,  numericality: { other_than: 1, message: 'Select' }
     validates :city
     validates :block
-    validates :phone, format: { with: /\A[0-9]+\z/ }, length: { maximum: 11 }
+    validates :phone,          length: { maximum: 11, message:'number is too long(maximum 11)'}, 
+                               format: { with: /\A[0-9]+\z/ , message: 'is invalid. Half-width number, without hyphen(-)'}
     validates :token
-    validates :prefecture_id, numericality: { other_than: 1, message: 'Select' }
   end
 
   def save
