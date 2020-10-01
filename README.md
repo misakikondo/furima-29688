@@ -17,6 +17,7 @@
 
 - has_many :orders
 - has_many :items
+- has_many :comments
 
 
 ## items テーブル
@@ -37,11 +38,25 @@
 
 - has_one :order
 - belongs_to :user
+- has_many :comments
 - belongs_to_active_hash :category
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :shipping_method
 - belongs_to_active_hash :item_location
 - belongs_to_active_hash :days_to_ship
+
+## comments テーブル
+
+| Column            | Type      | Options                         |
+| ----------------- | --------- | ------------------------------- |
+| item              | references| null: false, foreign_key: true  |
+| user              | references| null: false, foreign_key: true  |
+| test              | text      | null:false                      |
+
+## Association
+ - belongs_to :item
+ - belongs_to :user
+
 
 
 ## orders テーブル
@@ -66,7 +81,7 @@
 | prefecture        | integer   | null: false                     |
 | city              | string    | null: false                     |
 | block             | string    | null: false                     |
-| building_name     | string    |                       　　　　　　|
+| building_name     | string    |                                 |
 | phone             | string    | null: false                     |
 | order             | references| null: false, foreign_key: true  |
 

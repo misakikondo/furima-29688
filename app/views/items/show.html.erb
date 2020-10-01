@@ -1,4 +1,5 @@
 <%= render "shared/header" %>
+<%= render 'shared/error_messages', model: @comment %>
 
 <%# 商品の概要 %>
 <div class="item-show">
@@ -76,21 +77,39 @@
     </div>
   </div>
   <%# /商品の概要 %>
-
+  <%if @item.order.nil?%>
   <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
+   <% if current_user %>
+    <%= form_with model: [@item,@comment],url: item_comments_path(@item.id), method: :post, local: true do |f| %>
+      <%= f.text_area :text, class:"comment-text",placeholder: "コメントを記入してください" %>
       <p class="comment-warn">
         相手のことを考え丁寧なコメントを心がけましょう。
         <br>
         不快な言葉遣いなどは利用制限や退会処分となることがあります。
       </p>
       <button type="submit" class="comment-btn">
+      <% f.submit "submit", class: "comment-btn"%>
         <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
         <span>コメントする<span>
       </button>
-    </form>
+    <% end %>
+  <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+  <% end %>
   </div>
+  <% end %>
+ 
+ <div class="comments">
+    <h4>＜コメント一覧＞</h4>
+      <% if @comments %>
+        <% @comments.each do |comment| %>
+          <p>
+            <strong><%= link_to comment.user.nickname, "hoge" %>：</strong>
+            <%= comment.text %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
   <div class="links">
     <a href="#" class="change-item-btn">
       ＜ 前の商品
