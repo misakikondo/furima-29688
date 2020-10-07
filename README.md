@@ -51,7 +51,7 @@
 | ----------------- | --------- | ------------------------------- |
 | item              | references| null: false, foreign_key: true  |
 | user              | references| null: false, foreign_key: true  |
-| test              | text      | null:false                      |
+| text              | text      | null:false                      |
 
 ## Association
  - belongs_to :item
