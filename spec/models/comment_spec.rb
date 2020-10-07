@@ -19,7 +19,19 @@ RSpec.describe Comment, type: :model do
           expect(@comment.errors.full_messages).to include("Text can't be blank")
         end
 
-        it '入力フォームに絵文字が入っていると登録できないこと' do
+        it 'userが紐付いていないと投稿できないこと' do
+          @comment.user = nil
+          @comment.valid?
+          expect(@comment.errors.full_messages).to include("User must exist")
+        end
+    
+        it 'Itemが紐付いていないと投稿できないこと' do
+          @comment.item = nil
+          @comment.valid?
+          expect(@comment.errors.full_messages).to include("Item must exist")
+        end
+
+        it '入力フォームに絵文字が入っていると投稿できないこと' do
           @comment.text = "😊"
           @comment.valid?
           expect(@comment.errors.full_messages).to include("Text に絵文字(😊)は使用できません。")

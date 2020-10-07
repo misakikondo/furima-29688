@@ -6,7 +6,8 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to item_path(@comment.item.id)
     else
-      render template: "items/show"
+      @comments =  @item.comments.includes(:user)
+      render "items/show"
     end
   end
 
