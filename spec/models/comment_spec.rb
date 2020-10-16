@@ -25,7 +25,7 @@ RSpec.describe Comment, type: :model do
           expect(@comment.errors.full_messages).to include("User must exist")
         end
     
-        it 'Itemが紐付いていないと投稿できないこと' do
+        it 'itemが紐付いていないと投稿できないこと' do
           @comment.item = nil
           @comment.valid?
           expect(@comment.errors.full_messages).to include("Item must exist")
