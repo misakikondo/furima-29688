@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
- belongs_to :user, dependent: :destroy
- belongs_to :item, dependent: :destroy
+ belongs_to :user
+ belongs_to :item
 
  validates :text, presence: true
  validate :no_4_bytes

@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :items
   has_many :orders
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   validates :email, uniqueness: true,
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
